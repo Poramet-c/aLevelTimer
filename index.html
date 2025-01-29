@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Study Timer</h1>
+
+        <!-- Timer Display -->
+        <div id="timer">00:00:00.000</div>
+
+        <!-- Timer Controls -->
+        <div class="controls">
+            <button id="startStopButton">Start</button>
+            <button id="resetButton">Reset</button>
+        </div>
+
+        <!-- Form for After Timer Stops (Hidden Initially) -->
+        <div id="logForm" style="display: none;">
+            <h3>Log Your Study Session:</h3>
+
+            <!-- Radio Buttons Grouped by Grade -->
+            <div id="topics">
+                <h4>Select Topic by Grade:</h4>
+                <div class="topic-group">
+                    <fieldset>
+                        <legend>Grade 10</legend>
+                        <label><input type="radio" name="topic" value="Grade 10 - เซต" /> เซต</label>
+                        <label><input type="radio" name="topic" value="Grade 10 - ตรรกศาสตร์" /> ตรรกศาสตร์</label>
+                        <label><input type="radio" name="topic" value="Grade 10 - จำนวนจริงและพหุนาม" /> จำนวนจริงและพหุนาม</label>
+                        <label><input type="radio" name="topic" value="Grade 10 - ฟังก์ชัน" /> ฟังก์ชัน</label>
+                        <label><input type="radio" name="topic" value="Grade 10 - เอกซ์โพเนนเชียลและลอการิทึม" /> เอกซ์โพเนนเชียลและลอการิทึม</label>
+                        <label><input type="radio" name="topic" value="Grade 10 - เรขาคณิตวิเคราะห์" /> เรขาคณิตวิเคราะห์</label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Grade 11</legend>
+                        <label><input type="radio" name="topic" value="Grade 11 - ตรีโกณมิติ" /> ตรีโกณมิติ</label>
+                        <label><input type="radio" name="topic" value="Grade 11 - เลขยกกำลัง" /> เลขยกกำลัง</label>
+                        <label><input type="radio" name="topic" value="Grade 11 - จำนวนเชิงซ้อน" /> จำนวนเชิงซ้อน</label>
+                        <label><input type="radio" name="topic" value="Grade 11 - เมทริกซ์" /> เมทริกซ์</label>
+                        <label><input type="radio" name="topic" value="Grade 11 - เวกเตอร์" /> เวกเตอร์</label>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Grade 12</legend>
+                        <label><input type="radio" name="topic" value="Grade 12 - อนุกรม" /> อนุกรม</label>
+                        <label><input type="radio" name="topic" value="Grade 12 - ดอกเบี้ยและเงิน" /> ดอกเบี้ยและเงิน</label>
+                        <label><input type="radio" name="topic" value="Grade 12 - สถิติ" /> สถิติ</label>
+                        <label><input type="radio" name="topic" value="Grade 12 - ความน่าจะเป็น" /> ความน่าจะเป็น</label>
+                        <label><input type="radio" name="topic" value="Grade 12 - หลักการนับ" /> หลักการนับ</label>
+                        <label><input type="radio" name="topic" value="Grade 12 - แคลคูลัส" /> แคลคูลัส</label>
+                    </fieldset>
+                </div>
+            </div>
+
+            <!-- Notes and Difficulty -->
+            <div id="notes">
+                <h4>Optional Notes:</h4>
+                <textarea id="sessionNotes" rows="3" placeholder="Write any notes about the session..."></textarea>
+            </div>
+
+            <div id="difficulty">
+                <h4>How Hard Was the Problem?</h4>
+                <label><input type="radio" name="difficulty" value="Easy" /> Easy</label>
+                <label><input type="radio" name="difficulty" value="Medium" /> Medium</label>
+                <label><input type="radio" name="difficulty" value="Hard" /> Hard</label>
+            </div>
+
+            <!-- Solved Correctly -->
+            <div id="correct">
+                <h4>Did you solve it correctly?</h4>
+                <label><input type="radio" name="correct" value="Yes" /> Yes</label>
+                <label><input type="radio" name="correct" value="No" /> No</label>
+            </div>
+
+            <button id="saveLogButton">Save Log</button>
+        </div>
+
+        <div id="averages">
+            <!-- Averages will be displayed here -->
+        </div>
+
+        <!-- Log Display -->
+        <h2>Study Logs</h2>
+        <table id="logTable">
+            <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Time</th>
+                    <th>Difficulty</th>
+                    <th>Notes</th>
+                    <th>Solved Correctly</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="log"></tbody>
+        </table>
+
+    </div>
+
+    <!-- Add this at the end of your index.html file -->
+    <!-- <div class="navigation-container">
+        <a href="analysis.html" class="btn">View Trending Analysis</a>
+    </div> -->
+    <!-- Add the following button for downloading the raw log -->
+    <button id="downloadLogButton">Download Raw Log</button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
