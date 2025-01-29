@@ -280,3 +280,19 @@ textarea::placeholder {
 #downloadLogButton:hover {
     background-color: #45a049; /* Optional: Hover effect */
 }
+
+#uploadLogButton {
+    display: block;  /* Make the button a block-level element */
+    margin: 0 auto;  /* Center it horizontally */
+    padding: 10px 20px;  /* Optional: Adds some padding for better appearance */
+    background-color: #4CAF50;  /* Optional: Sets a green background */
+    color: white;  /* Optional: Sets the text color to white */
+    border: none;  /* Optional: Removes border */
+    border-radius: 5px;  /* Optional: Rounds the corners */
+    font-size: 16px;  /* Optional: Adjusts the font size */
+    cursor: pointer;  /* Changes the cursor to a pointer on hover */
+}
+
+#uploadLogButton:hover {
+    background-color: #45a049;  /* Optional: Changes the background on hover */
+}

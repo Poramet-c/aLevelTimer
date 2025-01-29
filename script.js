@@ -165,6 +165,69 @@ document.getElementById("downloadLogButton").addEventListener("click", function(
     link.click();
 });
 
+// Handle the "Upload Logs" button click
+document.getElementById('uploadLogButton').addEventListener('click', function() {
+    document.getElementById('fileInput').click();  // Trigger file input click
+});
+
+// Handle the file input change (when a user selects a file)
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];  // Get the selected file
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const fileContent = e.target.result;
+        
+        try {
+            // Assuming the log file is a JSON array
+            const newLogs = JSON.parse(fileContent);
+            let logs = JSON.parse(localStorage.getItem("studyLogs")) || [];
+
+            // Combine the current logs with the new logs
+            logs = logs.concat(newLogs);
+
+            // Save the updated logs back to localStorage
+            localStorage.setItem("studyLogs", JSON.stringify(logs));
+
+            // After uploading, display updated logs
+            displayLogs();
+
+            alert("Logs uploaded and appended successfully!");
+        } catch (error) {
+            alert("Error parsing the log file. Please check the file format.");
+        }
+    };
+
+    reader.readAsText(file);  // Read the file content as text
+});
+
+// Function to append the log to the table
+function appendLogToTable(log) {
+    const logTable = document.getElementById('log');
+    const newRow = logTable.insertRow();
+
+    const topicCell = newRow.insertCell(0);
+    const timeCell = newRow.insertCell(1);
+    const difficultyCell = newRow.insertCell(2);
+    const notesCell = newRow.insertCell(3);
+    const solvedCell = newRow.insertCell(4);
+    const actionCell = newRow.insertCell(5);
+
+    topicCell.textContent = log.topic || "N/A";
+    timeCell.textContent = log.time || "N/A";
+    difficultyCell.textContent = log.difficulty || "N/A";
+    notesCell.textContent = log.notes || "N/A";
+    solvedCell.textContent = log.correct || "N/A"; // "correct" field used instead of "solvedCorrectly"
+
+    // Optionally, add action buttons like "Edit" or "Delete" to the action cell
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.onclick = () => {
+        logTable.deleteRow(newRow.rowIndex);  // Delete the row
+    };
+    actionCell.appendChild(deleteButton);
+}
 
 document.getElementById("resetButton").addEventListener("click", resetTimer);
 
