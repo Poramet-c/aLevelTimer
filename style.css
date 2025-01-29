@@ -9,6 +9,7 @@ body {
     background-color: #f4ecd8;  /* Sepia background color */
     color: #5a4e4e;  /* Sepia text color */
     padding: 20px;
+    padding-bottom: 0;
 }
 
 .container {
@@ -295,4 +296,17 @@ textarea::placeholder {
 
 #uploadLogButton:hover {
     background-color: #45a049;  /* Optional: Changes the background on hover */
+}
+
+footer {
+    text-align: center;  /* Center the text */
+    padding: 20px 0;  /* Add some space above and below the paragraph */
+    margin-top: 70px;
+    font-size: 14px;  /* Set font size */
+    color: #333;  /* Set font color */
+}
+
+footer p a {
+    color: #45a049;
+    text-decoration: none;
 }
